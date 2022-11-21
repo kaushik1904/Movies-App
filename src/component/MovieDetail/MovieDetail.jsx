@@ -6,14 +6,14 @@ import {
   getSelectedMovieDetail,
 } from "../../features/movieSlices";
 
-import './MovieDetail.scss';
+import "./MovieDetail.scss";
+import Loading from "../Loading/Loading";
 
 const MovieDetail = () => {
   const { imdbID } = useParams();
   const dispatch = useDispatch();
 
   const data = useSelector(getSelectedMovieDetail);
-  console.log(data);
 
   useEffect(() => {
     dispatch(fetchAsyncMoviesDetail(imdbID));
@@ -21,7 +21,7 @@ const MovieDetail = () => {
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (
-        <div>...Loading</div>
+        <Loading />
       ) : (
         <>
           <div className="section-left">
