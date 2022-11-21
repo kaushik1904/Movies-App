@@ -4,7 +4,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="footer">
-      <p>CopyRight</p>
+      <p> &#169; 2022 Kaushik Prajapati</p>
     </div>
   );
 };
