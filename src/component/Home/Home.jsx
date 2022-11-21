@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-
-import movieApi from "./../../common/api/movieApi";
-import { addMovies } from "../../features/movieSlices";
-import MovieListing from "./../MovieListing/MovieListing";
 import "./Home.scss";
 
+import movieApi from "./../../common/api/movieApi";
+import { useDispatch } from "react-redux";
+import { addMovies } from "./../../features/movieSlices";
+import MovieListing from "./../MovieListing/MovieListing";
 const Home = () => {
+  const [movieName, setMovieName] = useState("Drishyam");
   const dispatch = useDispatch();
-
-  const [movieName, setMovieName] = useState("Pushpa");
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -21,24 +19,23 @@ const Home = () => {
       dispatch(addMovies(response.data));
     };
     fetchMovies();
-  },[movieName]);
-
+  }, [movieName]);
   return (
     <div className="home">
       <div className="home_search_container">
-        <form className="home_search" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="search any thing"
-            onChange={(e) => setMovieName(e.target.value)}
-          />
-          <button type="submit">
-            {/* <i class="fas fa-search"></i> */}
-            search
-          </button>
+        <form
+          action="#"
+          className="home_search"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <input type="text" onChange={(e) => setMovieName(e.target.value)} />
+          <button type="submit">Search</button>
         </form>
       </div>
-      <MovieListing />
+
+      <div className="home_movie">
+        <MovieListing />
+      </div>
     </div>
   );
 };
