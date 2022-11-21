@@ -1,0 +1,45 @@
+.home {
+  &_search {
+    &_container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px;
+    margin-top: 2.5rem;
+
+    & > input {
+      background: transparent;
+      flex: 1;
+      border: none;
+      padding: 0.5rem 0.5rem;
+      font-size: 1.2rem;
+      color: #cccc;
+    }
+
+    & > button {
+      border: 0;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s;
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: translateY(5px);
+      }
+    }
+  }
+
+  &_main {
+    margin-top: 3rem;
+  }
+}
